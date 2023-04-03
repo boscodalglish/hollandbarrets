@@ -42,3 +42,8 @@ Below variables are used to enable public, private and database subnets in VPC
 You can have more details in below 
 
 [VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc)
+
+### Autoscaler
+The Autoscaler module is used to create instances in private, public and database subnets. Based on VPC variables it creates a autoscaling group in VPC.
+
+[Autoscaling module](https://github.com/terraform-aws-modules/terraform-aws-autoscaling)
