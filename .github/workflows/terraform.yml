@@ -22,7 +22,6 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
 
       - name: Terraform fmt
-        if: github.ref == 'refs/heads/develop' && github.event_name == 'pull_request'
         run: cd beta-env && terraform fmt -check -recursive
 
       # - name: Terraform init
