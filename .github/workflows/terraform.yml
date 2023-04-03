@@ -2,7 +2,6 @@ name: Terraform CI/CD Pipeline v4
 
 on:
   pull_request:
-    types: [ closed, opened, edited, reopened, synchronize ]
     branches: [develop]
 
 
