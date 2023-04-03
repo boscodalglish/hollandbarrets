@@ -2,9 +2,11 @@ name: Terraform CI/CD Pipeline v4
 
 on:
   push:
-    branches: [develop]
+    branches: 
+     - develop
   pull_request:
-    branches: [develop]
+    branches: 
+     - develop
 
 
 env:
