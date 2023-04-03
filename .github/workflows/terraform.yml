@@ -53,6 +53,7 @@ jobs:
   terraform-prod:
     runs-on: ubuntu-latest
     environment: 'prod'
+    needs: terraform-beta
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
