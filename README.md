@@ -8,7 +8,7 @@ This is a test project for Holland and Barrett Platform Team.
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .tfvars env file
 
 `secret_key`
 
@@ -44,6 +44,6 @@ You can have more details in below
 [VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc)
 
 ### Autoscaler
-The Autoscaler module is used to create instances in private, public and database subnets. Based on VPC variables it creates a autoscaling group in VPC.
+The Autoscaler module is used to create instances in private, public and database subnets. Based on VPC variables it creates a autoscaling group in VPC. We have three autoscaler groups in this module for private, public and database instances.
 
 [Autoscaling module](https://github.com/terraform-aws-modules/terraform-aws-autoscaling)

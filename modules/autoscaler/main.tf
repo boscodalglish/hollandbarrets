@@ -141,7 +141,7 @@ module "complete_public_asg" {
   }
 
   # # Security group is set on the ENIs below
-  security_groups = [var.public_sg_alb]
+  security_groups = [var.public_sg_ist]
 
   target_group_arns = [var.target_group_arns_public]
 
@@ -202,7 +202,7 @@ module "complete_public_asg" {
       description                 = "eth0"
       device_index                = 0
       associate_public_ip_address = true
-      security_groups             = ["${var.public_sg_alb}"]
+      security_groups             = ["${var.public_sg_ist}"]
     }
   ]
 
@@ -371,7 +371,7 @@ module "complete_private_asg" {
   }
 
   # # Security group is set on the ENIs below
-  security_groups = [var.private_sg_alb]
+  security_groups = [var.private_sg_ist]
 
   target_group_arns = [var.target_group_arns_private]
 
@@ -431,7 +431,7 @@ module "complete_private_asg" {
       delete_on_termination = true
       description           = "eth0"
       device_index          = 0
-      security_groups       = ["${var.private_sg_alb}"]
+      security_groups       = ["${var.private_sg_ist}"]
     }
   ]
 
@@ -547,7 +547,7 @@ module "complete_database_asg" {
   wait_for_capacity_timeout = 0
   default_instance_warmup   = 300
   health_check_type         = "EC2"
-  vpc_zone_identifier       = ["${db_subnets[0]}", "${db_subnets[1]}", "${db_subnets[2]}"]
+  vpc_zone_identifier       = ["${var.db_subnets[0]}", "${var.db_subnets[1]}", "${var.db_subnets[2]}"]
 
   initial_lifecycle_hooks = [
     {
@@ -696,8 +696,6 @@ module "complete_database_asg" {
       tags          = merge({ WhatAmI = "SpotInstanceRequest" })
     }
   ]
-
-  tags = local.tags
 
   # Autoscaling Schedule
   schedules = {
