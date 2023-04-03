@@ -13,7 +13,6 @@ env:
 jobs:
   terraform-beta:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
     defaults:
       run:
         shell: bash
