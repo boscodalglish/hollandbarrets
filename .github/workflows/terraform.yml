@@ -50,7 +50,7 @@ jobs:
           TF_VAR_region: ${{ env.TF_VAR_region }}
 
       - name: Terraform apply
-        if: github.event.action == 'push'
+        if: github.ref == 'refs/heads/develop' && github.event_name == 'pull_request'
         run: terraform apply tfplan
         env:
           TF_VAR_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
