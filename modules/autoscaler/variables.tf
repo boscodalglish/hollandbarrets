@@ -10,7 +10,7 @@ variable "target_group_arns_public" {
 variable "private_subnets" {
     type = list
 }
-variable "private_sg_ist " {}
+variable "private_sg_ist" {}
 variable "target_group_arns_private" {
 }
 variable "enable_public_subnets" {}
