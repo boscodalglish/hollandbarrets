@@ -41,3 +41,13 @@ output "private_subnets_ipv6_cidr_blocks" {
   description = "List of IPv6 cidr_blocks of private subnets in an IPv6 enabled VPC"
   value       = module.vpc.private_subnets_ipv6_cidr_blocks
 }
+
+output "database_subnets" {
+  description = "List of IDs of database subnets"
+  value       = module.vpc.database_subnets
+}
+
+output "database_subnets_arns" {
+  description = "List of ARNs of database subnets"
+  value       = module.vpc.database_subnet_arns
+}
