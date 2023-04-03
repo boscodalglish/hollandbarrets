@@ -15,7 +15,6 @@ jobs:
   terraform-beta:
     runs-on: ubuntu-latest
     environment: dev
-    if: github.event_name == 'pull_request' || github.event_name == 'push'
     defaults:
       run:
         shell: bash
