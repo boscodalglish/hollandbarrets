@@ -13,8 +13,11 @@ env:
 jobs:
   terraform-beta:
     runs-on: ubuntu-latest
-    environment: dev
     if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./beta-env
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
