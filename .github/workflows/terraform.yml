@@ -12,6 +12,7 @@ env:
 
 jobs:
   terraform-beta:
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: 'dev'
     steps:
@@ -51,16 +52,13 @@ jobs:
           TF_VAR_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_region: ${{ env.TF_VAR_region }}
   terraform-prod:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     environment: 'prod'
     needs: terraform-beta
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - uses: trstringer/manual-approval@v1
-        with:
-          approvers: boscodalglish
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
