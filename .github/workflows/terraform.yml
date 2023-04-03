@@ -14,6 +14,7 @@ jobs:
   terraform-beta:
     runs-on: ubuntu-latest
     environment: dev
+    if: github.ref == 'refs/heads/develop'
     defaults:
       run:
         shell: bash
