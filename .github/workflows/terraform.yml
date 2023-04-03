@@ -1,4 +1,4 @@
-name: Terraform CI/CD Pipeline
+name: Terraform CI/CD Pipeline v3
 
 on:
   push:
@@ -15,7 +15,6 @@ env:
 jobs:
   terraform-beta:
     runs-on: ubuntu-latest
-    environment: dev
     defaults:
       run:
         shell: bash
