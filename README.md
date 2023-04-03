@@ -8,7 +8,7 @@ This is a test project for Holland and Barrett Platform Team.
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .tfvars env file
 
 `secret_key`
 
