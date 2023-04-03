@@ -141,7 +141,7 @@ module "complete_public_asg" {
   }
 
   # # Security group is set on the ENIs below
-  security_groups = [var.public_sg_alb]
+  security_groups = [var.public_sg_ist]
 
   target_group_arns = [var.target_group_arns_public]
 
@@ -202,7 +202,7 @@ module "complete_public_asg" {
       description                 = "eth0"
       device_index                = 0
       associate_public_ip_address = true
-      security_groups             = ["${var.public_sg_alb}"]
+      security_groups             = ["${var.public_sg_ist}"]
     }
   ]
 
@@ -371,7 +371,7 @@ module "complete_private_asg" {
   }
 
   # # Security group is set on the ENIs below
-  security_groups = [var.private_sg_alb]
+  security_groups = [var.private_sg_ist]
 
   target_group_arns = [var.target_group_arns_private]
 
@@ -431,7 +431,7 @@ module "complete_private_asg" {
       delete_on_termination = true
       description           = "eth0"
       device_index          = 0
-      security_groups       = ["${var.private_sg_alb}"]
+      security_groups       = ["${var.private_sg_ist}"]
     }
   ]
 
