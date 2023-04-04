@@ -27,11 +27,11 @@ locals {
     sudo touch /var/www/html/index.html
     sudo chmod 777 /var/www/html/index.html
     cat <<'END_HTML' > /var/www/html/index.html
-    <h1>Hello World!</h1>
+    <h1>Hello Dalglish!${var.html_data}</h1>
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
-  user_data_db  = <<-EOT
+  user_data_db      = <<-EOT
     #!/bin/bash
     sudo apt-get update -y
     sudo curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -

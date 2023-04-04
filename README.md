@@ -8,7 +8,7 @@ This is a test project for Holland and Barrett Platform Team.
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .tfvars env file
+To run this project, you will need to add the following environment variables to your .env file
 
 `secret_key`
 
@@ -31,12 +31,14 @@ To deploy this project locally run the following Terraform commands, you need to
 ### VPC
 The VPC module is used to create the VPC,route tables, IGW, NatGateway, Private subnets, Public Subnets, Database Subnets.
 
-Below variables are used to enable public, private and database subnets in VPC
+Below required variables are used to enable proper functioning of VPC module
 
 ```bash
-  enable_public_subnets
-  enable_private_subnets
-  enable_db_subnets
+  cidr
+  private_subnets
+  public_subnets
+  database_subnets
+  azs
 ```
 
 You can have more details in below 
@@ -44,6 +46,14 @@ You can have more details in below
 [VPC module](https://github.com/terraform-aws-modules/terraform-aws-vpc)
 
 ### Autoscaler
-The Autoscaler module is used to create instances in private, public and database subnets. Based on VPC variables it creates a autoscaling group in VPC. We have three autoscaler groups in this module for private, public and database instances.
+The Autoscaler module is used to create instances in private, public and database subnets. Based on VPC variables it creates a autoscaling group in VPC.
+
+Below variables are used to enable public, private and database subnets in VPC
+
+```bash
+  enable_public_subnets
+  enable_private_subnets
+  enable_db_subnets
+```
 
 [Autoscaling module](https://github.com/terraform-aws-modules/terraform-aws-autoscaling)
