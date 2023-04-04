@@ -2,7 +2,7 @@ name: Terraform CI/CD Pipeline v4
 
 on:
   push:
-    branches: [master]
+    branches: [master,develop]
   pull_request:
     branches: [master]
 
@@ -15,12 +15,7 @@ jobs:
   terraform-stage:
     runs-on: ubuntu-latest
     environment: staging
-<<<<<<< HEAD
-    if: ${{github.head_ref == 'develop' && github.base_ref == 'master'}} || ${{github.event_name == 'push'}}
-=======
-    needs: [terraform-beta]
-    if: github.event_name == 'pull_request' || github.event_name == 'push'
->>>>>>> bf62102a692a84f921e32ac46bc1161416461c1e
+    if: ${{github.head_ref == 'develop' && github.base_ref == 'master'}} || ${{github.ref == 'master && github.event_name == 'push'}}
     defaults:
       run:
         shell: bash
@@ -65,7 +60,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     needs: terraform-stage
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     defaults:
       run:
         shell: bash
@@ -106,7 +100,4 @@ jobs:
           TF_VAR_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           TF_VAR_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           TF_VAR_region: ${{ env.TF_VAR_region }}
-<<<<<<< HEAD
  
-=======
->>>>>>> bf62102a692a84f921e32ac46bc1161416461c1e
