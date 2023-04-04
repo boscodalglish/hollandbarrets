@@ -40,6 +40,16 @@ module "vpc" {
     }
   }
 
+  private_subnet_tags = {
+    Name = "private-subnet"
+  }
+
+  private_subnet_tags_per_az = {
+    "${local.region}a" = {
+      "availability-zone" = "${local.region}a"
+    }
+  }
+
   vpc_tags = {
     Name = "vpc-${var.name}"
   }
