@@ -23,6 +23,7 @@ module "autoscaler" {
   enable_public_subnets     = local.enable_public_subnets
   enable_private_subnets    = local.enable_private_subnets
   enable_db_subnets         = local.enable_db_subnets
+  html_data                 = "Hello Beta"
   public_subnets            = module.vpc.public_subnets
   public_sg_ist             = module.network.security_group_Public_SG_allow_tls_id
   target_group_arns_public  = module.alb.alb_public_arn

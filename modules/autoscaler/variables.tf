@@ -36,3 +36,7 @@ variable "enable_private_subnets" {
 variable "enable_db_subnets" {
     description = "Enable db subnets, accepts boolens values"
 }
+
+variable "html_data" {
+    description = "Content to be displayed"
+}
