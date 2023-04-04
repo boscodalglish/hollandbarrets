@@ -15,6 +15,7 @@ jobs:
   terraform-stage:
     runs-on: ubuntu-latest
     environment: staging
+    needs: [terraform-beta]
     defaults:
       run:
         shell: bash
