@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./beta-env
+        working-directory: ./staging-env
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./beta-env
+        working-directory: ./prod-env
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
