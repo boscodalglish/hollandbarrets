@@ -27,7 +27,7 @@ locals {
     sudo touch /var/www/html/index.html
     sudo chmod 777 /var/www/html/index.html
     cat <<'END_HTML' > /var/www/html/index.html
-    <h1>Hello World!</h1>
+    <h1>Hello Dalglish!</h1>
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
