@@ -31,7 +31,7 @@ locals {
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
-  user_data_db  = <<-EOT
+  user_data_db      = <<-EOT
     #!/bin/bash
     sudo apt-get update -y
     sudo curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
