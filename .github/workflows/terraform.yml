@@ -15,7 +15,7 @@ jobs:
   CHECK_PR_TYPE:
     name: 'CHECK PR TYPE'
     runs-on: ubuntu-latest
-    environment: development
+    environment: dev
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
