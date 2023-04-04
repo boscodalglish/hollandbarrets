@@ -20,7 +20,6 @@ module "vpc" {
 
 module "autoscaler" {
   source                    = "../modules/autoscaler"
-  tags                      = var.tags
   enable_public_subnets     = local.enable_public_subnets
   enable_private_subnets    = local.enable_private_subnets
   enable_db_subnets         = local.enable_db_subnets

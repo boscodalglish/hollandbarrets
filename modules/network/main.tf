@@ -1,4 +1,6 @@
-# /* Private SG and rules */
+################################################################################
+# Private Security group and rules for instances
+################################################################################
 
 resource "aws_security_group" "Private_SG_allow_tls" {
   name        = "allow_tls_private"
@@ -42,8 +44,9 @@ resource "aws_security_group" "Private_SG_allow_tls" {
   }
 }
 
-
-# /* Public SG and rules */
+################################################################################
+# Public Security group and rules for public instances
+################################################################################
 
 resource "aws_security_group" "Public_SG_allow_tls" {
   name        = "allow_tls_public"
@@ -86,7 +89,9 @@ resource "aws_security_group" "Public_SG_allow_tls" {
   }
 }
 
-# /* DB SG and rules */
+################################################################################
+# Database Security group and rules for Database instances
+################################################################################
 
 resource "aws_security_group" "db_SG_allow_tls" {
   name        = "allow_tls_db"

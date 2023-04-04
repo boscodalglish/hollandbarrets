@@ -23,6 +23,15 @@ provider "aws" {
   access_key  = var.access_key
   secret_key  = var.secret_key
   default_tags {
-    tags = var.tags
+    tags = {
+      "project"     = "handb"
+      "region"      = "eu-west-1"
+      "environment" = "non-prod"
+      "repo"        = "https://github.com/boscodalglish/hollandbarrets"
+      "email"       = "dalglishfernandesuk@gmail.com"
+      "owner"       = "Dalglish Fernandes"
+      "live"        = "no"
+    }
   }
 }
+

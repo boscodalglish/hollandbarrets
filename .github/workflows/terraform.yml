@@ -2,10 +2,11 @@ name: Terraform CI/CD Pipeline v4
 
 on:
   push:
-    branches: [develop]
+    branches: 
+     - develop
   pull_request:
-    types: [ closed, opened, edited, reopened, synchronize ]
-    branches: [develop]
+    branches: 
+     - develop
 
 
 env:
@@ -50,7 +51,7 @@ jobs:
           TF_VAR_region: ${{ env.TF_VAR_region }}
 
       - name: Terraform apply
-        if: github.event.action == 'push'
+        if: github.event_name == 'push'
         run: terraform apply tfplan
         env:
           TF_VAR_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -21,7 +21,9 @@ data "aws_instances" "public_instances" {
 }
 
 
-# /* Private SG and rules */
+################################################################################
+# # /* Private Security groups and Rules for Private ALB */
+################################################################################
 
 resource "aws_security_group" "private_alb_sg" {
   name        = "private_alb_sg"
@@ -65,6 +67,9 @@ resource "aws_security_group" "private_alb_sg" {
   }
 }
 
+################################################################################
+# Public Security groups and Rules for Public ALB 
+################################################################################
 resource "aws_security_group" "public_alb_sg" {
   name        = "public_alb_sg"
   description = "Public ALB SG"
@@ -106,7 +111,9 @@ resource "aws_security_group" "public_alb_sg" {
   }
 }
 
-/*Private ALB*/
+################################################################################
+# Private ALB and Target Group
+################################################################################
 resource "aws_alb_target_group" "private_http" {
 
   name        = "instance-private-http"
@@ -160,7 +167,9 @@ resource "aws_alb_listener" "private_http" {
 
 
 
-/*Public ALB*/
+################################################################################
+# Public ALB and Target Group
+################################################################################
 resource "aws_alb_target_group" "public_http" {
 
   name        = "instance-public-http"
