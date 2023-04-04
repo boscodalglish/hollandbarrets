@@ -19,7 +19,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./beta-env
+        working-directory: ./staging-env
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./beta-env
+        working-directory: ./prod-env
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -96,7 +96,6 @@ jobs:
 
       - name: Terraform apply
         if: github.event_name == 'push'
-
         run: terraform apply tfplan
         env:
           TF_VAR_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
