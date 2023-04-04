@@ -16,7 +16,7 @@ env:
 jobs:
   terraform-beta:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' && github.event_name == 'push' || && github.event_name == 'pull_request'
+    if: github.ref == 'refs/heads/develop' || github.event_name == 'push' || && github.event_name == 'pull_request'
     environment: dev
     defaults:
       run:
