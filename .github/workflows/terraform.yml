@@ -12,9 +12,33 @@ env:
   TF_VAR_region: "eu-west-1"
 
 jobs:
+  CHECK_PR_TYPE:
+    name: 'CHECK PR TYPE'
+    runs-on: ubuntu-latest
+    environment: development
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+    
+    outputs:
+      PR_CLOSED: ${{ steps.check.outputs.continue }}
+
+    steps:
+    - name: Check PR Closed
+      id: check
+      run: |
+        if [[ ${{github.event.action }} == 'closed' && ${{ github.event.pull_request.merged }} == 'false' ]];
+        then
+           echo "continue=false" >> $GITHUB_OUTPUT
+        else
+           echo "continue=true" >> $GITHUB_OUTPUT
+        fi
   terraform-beta:
     runs-on: ubuntu-latest
-    if: ${{github.ref != 'refs/heads/master'}} || ${{github.base_ref == 'refs/heads/develop' && github.event_name == 'pull_request'}}
+    needs: [CHECK_PR_TYPE]
+    if: ${{needs.CHECK_PR_TYPE.outputs.PR_CLOSED == 'true'}} && ${{github.base_ref == 'refs/heads/develop' && github.event_name == 'pull_request'}}
     environment: dev
     defaults:
       run:
