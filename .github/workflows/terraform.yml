@@ -12,7 +12,7 @@ env:
 jobs:
   terraform-beta:
     runs-on: ubuntu-latest
-    if: ${{github.head_ref == 'develop' && github.base_ref == 'master'}} || ${{github.bref == 'develop' && github.event_name == 'pull_request'}}
+    if: ${{github.bref == 'develop' && github.event_name == 'pull_request'}}
     environment: dev
     defaults:
       run:
