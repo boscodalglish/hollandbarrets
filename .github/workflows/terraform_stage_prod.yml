@@ -2,7 +2,7 @@ name: Terraform CI/CD Pipeline v4
 
 on:
   push:
-    branches: [master,develop]
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -15,7 +15,7 @@ jobs:
   terraform-stage:
     runs-on: ubuntu-latest
     environment: staging
-    if: ${{github.head_ref == 'develop' && github.base_ref == 'master'}} || ${{github.ref == 'master' && github.event_name == 'push'}}
+    if: ${{github.event_name == 'pull_request'}} || ${{github.event_name == 'push'}}
     defaults:
       run:
         shell: bash
