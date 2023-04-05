@@ -39,6 +39,8 @@ To deploy this project locally run the following Terraform commands, you need to
 ./prod-env
 ```
 
+#### Terraform commands to run scripts
+
 ```bash
   terraform init
   terraform plan
