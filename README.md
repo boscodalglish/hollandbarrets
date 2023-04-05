@@ -17,7 +17,27 @@ To run this project, you will need to add the following environment variables to
 
 ## Deployment
 
-To deploy this project locally run the following Terraform commands, you need to create enviroment variables as described in Environment variables section in tfvars file.
+To deploy this project locally run the following Terraform commands, you need to create enviroment variables as described in Environment variables section in tfvars file Choose the directory as per your deployment.
+
+#### Beta Enviroment
+
+```
+./beta-env
+```
+
+
+#### Staging Enviroment
+
+```
+./staging-env
+```
+
+
+#### Prod Enviroment
+
+```
+./prod-env
+```
 
 ```bash
   terraform init
