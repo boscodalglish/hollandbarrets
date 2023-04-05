@@ -57,3 +57,9 @@ Below variables are used to enable public, private and database subnets in VPC
 ```
 
 [Autoscaling module](https://github.com/terraform-aws-modules/terraform-aws-autoscaling)
+
+### ALB
+The ALB module is used to create public ALB and Private ALB and its associated Security groups.
+
+### Network
+The network module creates instance Security groups for private public and database subnets
