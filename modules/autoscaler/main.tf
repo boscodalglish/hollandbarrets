@@ -27,7 +27,8 @@ locals {
     sudo touch /var/www/html/index.html
     sudo chmod 777 /var/www/html/index.html
     cat <<'END_HTML' > /var/www/html/index.html
-    <h1>Hello Dalglish!${var.html_data}</h1>
+    CURRENTDATE=`date +"%Y-%m-%d %T"`
+    <h1>${var.html_data}! Current Date and Time is: ${CURRENTDATE}</h1>
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
