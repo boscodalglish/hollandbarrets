@@ -28,7 +28,7 @@ locals {
     sudo chmod 777 /var/www/html/index.html
     cat <<'END_HTML' > /var/www/html/index.html
     CURRENTDATE=`date +"%Y-%m-%d %T"`
-    <h1>${var.html_data}! Current Date and Time is: ${CURRENTDATE}</h1>
+    <h1>${var.html_data}! Current Date and Time is: $CURRENTDATE</h1>
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
