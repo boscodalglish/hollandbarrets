@@ -28,7 +28,13 @@ locals {
     sudo chmod 777 /var/www/html/index.html
     cat <<'END_HTML' > /var/www/html/index.html
     CURRENTDATE=`date +"%Y-%m-%d %T"`
-    <h1>${var.html_data}! Current Date and Time is: $CURRENTDATE</h1>
+    <h1>${var.html_data}!</h1>
+    <h1>Current Date and Time is: <span id="time"> </span></h1>
+    <script>  `use strict`
+    var datetime = new Date();
+    console.log(datetime);
+    document.getElementById("time").textContent = datetime;
+    </script>
     END_HTML
     sudo systemctl restart httpd.service
   EOT  
